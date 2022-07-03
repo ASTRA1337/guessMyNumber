@@ -39,9 +39,9 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.highscore').textContent = highScore;
         }
 
-    }else if( guess > secretNumber){
+    }else if( guess !== secretNumber){
         if(score > 1){
-            document.querySelector('.message').textContent = 'Too High!';
+            document.querySelector('.message').textContent = guess > secretNumber ? 'Too High!' : 'Too Low!';
             score--;
             document.querySelector('.score').textContent = score;
 
@@ -50,18 +50,8 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.score').textContent = 0;
         }
         
-    }else if( guess < secretNumber){
-        if(score > 1){
-            document.querySelector('.message').textContent = 'Too Low!';
-            score--;
-            document.querySelector('.score').textContent = score;
-
-        }else{
-            document.querySelector('.message').textContent = '🤯 You Lost the Game!';
-            document.querySelector('.score').textContent = 0;
-
-        }
+    }
     }
 
-});
+);
 
